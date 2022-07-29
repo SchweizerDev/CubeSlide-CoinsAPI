@@ -16,7 +16,7 @@ public class MySQLConfig extends YamlConfig {
     private String database = "database";
 
     @Path("mysql.user")
-    private String user = "root";
+    private String user = "user";
 
     @Path("mysql.password")
     private String password = "password";
