@@ -5,6 +5,7 @@ import ch.luca.cubeslide.coinsapi.mysql.MySQL;
 import ch.luca.cubeslide.coinsapi.mysql.repository.CoinsRepository;
 import lombok.Getter;
 import net.cubespace.Yamler.Config.InvalidConfigurationException;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -41,6 +42,13 @@ public class CoinsAPI extends JavaPlugin {
         // Init mysql connection
         this.coinsMySQL = new MySQL(this.mySQLConfig.getHost(), this.mySQLConfig.getDatabase(), this.mySQLConfig.getUser(),
                 this.mySQLConfig.getPassword(), this.mySQLConfig.getPort());
+        this.coinsRepository = new CoinsRepository(this.coinsMySQL);
+        Bukkit.getConsoleSender().sendMessage(prefix + "§aCoinsAPI enabled.");
+        Bukkit.getConsoleSender().sendMessage(prefix + "Author: Luca");
+    }
+
+    @Override
+    public void onDisable() {
 
     }
 
